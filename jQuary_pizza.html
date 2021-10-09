@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,300italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Pizza</title>
+
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="row">
+                <div class="main-nav">
+                    <ul class="create-pizza-nav">
+                        <li class="linkModal"><a href="#">Make your own pizza</a></li>
+                    </ul>
+                    <div class="tray">
+                        <div class="count">
+                        </div>
+                        <i class="fa fa-shopping-basket"></i>
+                    </div>
+                    <div id="shopping-cart">
+                        <div class="closewindow">
+                            <button class="close">x</button>
+                        </div>
+                        <h3>Shopping cart</h3>
+                        <div class="app-body">
+                            <ul class="list">
+                            </ul>
+                            <p>Total price: <span class="total-price"></span></p>
+                        </div>
+
+                        <div>
+                        </div>
+                        <button class="btn btn-cart order">Order</button>
+                        <br>
+                        <button class="btn btn-cart clear-all">Clear all</button>
+                    </div>
+                    <ul>
+                        <li><a href="#features">Make your order</a></li>
+                        <li><a href="#about">About us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="hero-text-box">
+            <h1 href="#home">Best pizza ever</h1>
+            <a class="btn btn-full js--scroll-to-plans" href="#features">I'm hungry</a>
+        </div>
+        </div>
+    </header>
+
+    <section class="section-features js--section-features" id="features">
+        <div class="row">
+            <h2>Get food fast<br> our menu</h2>
+            <p class="long-copy">
+                Hello, we're "Best pizza ever", your new pizza delivery service. We know you're always busy. No
+                time for
+                cooking. So let us take care of that, we're really good at it, we promise!
+            </p>
+        </div>
+
+        <div class="row" id="pop-up-window">
+            <button class="btn btn-cart create-pizza-body linkModal">Make your own pizza</button>
+
+            <div id="myModal">
+                <div id="right-side">
+                    <button id="myModal__close" class="close">x</button>
+                    <h3>Create your own</h3>
+                    <div id="pizza-size">
+                        <label>Size</label>
+                        <div class="right-list">
+                            <input type="radio" id="choice1" name="size" value="30cm">
+                            <label for="choice1">30cm</label>
+
+                            <input type="radio" id="choice2" name="size" value="60cm">
+                            <label for="choice2">60cm</label>
+
+                            <input type="radio" id="choice3" name="size" value="90cm">
+                            <label for="choice3">90cm</label>
+                        </div>
+                    </div>
+
+                    <div id="sauce">
+                        <label>Sauce</label>
+                        <div class="right-list">
+                            <select id="selectSauce" style="height: 25px;">
+                                <option value="Tomato Sauce">Tomato Sauce</option>
+                                <option value="BBQ Sauce">BBQ Sauce</option>
+                                <option value="White Sauce">White Sauce</option>
+                            </select>
+                            <button id="addSauce" class="btn btn-cart">✔</button>
+                        </div>
+                    </div>
+
+                    <div id="ingredients">
+                        <label>Topping</label>
+                        <div class="right-list">
+                            <select id="selectItems" style="height: 25px;">
+                                <option value="Tomatoes">Tomatoes</option>
+                                <option value="Chicken">Chicken</option>
+                                <option value="Mushrooms">Mushrooms</option>
+                                <option value="Olives">Olives</option>
+                                <option value="Pineapples">Pineapples</option>
+                                <option value="Bacon">Bacon</option>
+                                <option value="Ham">Ham</option>
+                                <option value="Sausages">Sausages</option>
+                                <option value="Lettuce">Lettuce</option>
+                                <option value="Spinach">Spinach</option>
+                                <option value="Arugula">Arugula</option>
+                                <option value="Shrimp">Shrimp</option>
+                                <option value="Mussels">Mussels</option>
+                                <option value="Octopus">Octopus</option>
+                                <option value="Squid">Squid</option>
+                            </select>
+                            <button id="addComp" class="btn btn-cart">✔</button>
+                        </div>
+                    </div>
+
+                    <div id="created-order card">
+                        <p class="pizza-create itemName">Own Created Pizza</p>
+                        <p>Size: <span class="size"></span></p>
+                        <p>Sauce: <span class="sauce"></span></p>
+
+                        <div id="comp">
+                            <p class="ingredients">Ingredients:
+
+                                <script type="text/template" id="order-template">
+                            <p>
+                                <span class="name">{{name}}</span>
+                                <button onclick=remove(this) class="btn btn-cart remove">x</button></p>
+                            </p>
+                            </script>
+                        </div>
+                        <br>
+                        <p>Price - <span class="price">0</span>$</p>
+                        <button id="popUp-addButton" class="btn btn-cart add-item right-list"><i
+                                class="fa fa-shopping-basket"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div id="myOverlay"></div>
+        </div>
+
+        <div id="filters">
+            <div id="selectors">
+                <div id="range_price">
+                    <p>Serch by price</p>
+                    <div class="rangeSlider">
+                        <input type="range" class="circleRange" min="0" max="50" value="0" step="0.1">
+                    </div>
+                    <div class="show_range_price">0</div>
+                </div>
+
+                <div id="category">
+                    <p>Serch by category</p>
+                    <input type="radio" name="favoritCategory" value="Meat">Meat pizza<br>
+                    <input type="radio" name="favoritCategory" value="Cheese">Cheese pizza<br>
+                    <input type="radio" name="favoritCategory" value="Vegeterian">Vegeterian pizza<br>
+                    <input type="radio" name="favoritCategory" value="Seafood">Seafood pizza<br>
+                </div>
+            </div>
+
+            <div id="pizza_cards">
+                <div class="vegeterian_pizza card">
+                    <img src="images/img_menu/Vegetarian_Pizza.jpg">
+                    <p class="itemName">Vegetarian autumn pizza</p>
+                    <p>Price - <span class="price" data-price="2.99">2.99</span>$</p>
+                    <button class="btn add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="seafood_pizza card">
+                    <img src="images/img_menu/Marinara_Pizza.jpg">
+                    <p class="itemName">Marinara pita pizza</p>
+                    <p>Price - <span class="price" data-price="4.95">4.95</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="meat_pizza card">
+                    <img src="images/img_menu/Ground_Meat_Pizza.jpg">
+                    <p class="itemName">Ground meat pizza with mushrooms and olives</p>
+                    <p>Price - <span class="price">3.50</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="cheese_pizza card">
+                    <img src="images/img_menu/Neapolitan_Pizza.jpg">
+                    <p class="itemName">Neapolitan pizza</p>
+                    <p>Price - <span class="price">3.50</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="meat_pizza card">
+                    <img src="images/img_menu/Italian_sausage_Pizza.gif" alt="Italian sausage pizza">
+                    <p class="itemName">Italian sausage Pizza</p>
+                    <p>Price - <span class="price">3.20</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="cheese_pizza card">
+                    <img src="images/img_menu/Zucchini_Pizza.jpg">
+                    <p class="itemName">Zucchini Pizza</p>
+                    <p>Price - <span class="price">2.99</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="meat_pizza card">
+                    <img src="images/img_menu/Meat_Lovers.jpg">
+                    <p class="itemName">Meat Lovers</p>
+                    <p>Price - <span class="price">3.99</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="cheese_pizza card">
+                    <img src="images/img_menu/Broccoli_Cheese.png" alt="Broccoli pizza">
+                    <p class="itemName">Broccoli Cheese Naan Pizza</p>
+                    <p>Price - <span class="price">3.99</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="vegeterian_pizza card">
+                    <img src="images/img_menu/Banh_Mi_Pizza.png">
+                    <p class="itemName">Banh Mi Pizza </p>
+                    <p>Price - <span class="price">2.99</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="seafood_pizza card">
+                    <img src="images/img_menu/Mussel_Pizza.jpg">
+                    <p class="itemName">Mussel Pizza</p>
+                    <p>Price - <span class="price">4.50</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="vegeterian_pizza card">
+                    <img src="images/img_menu/Vegan_Pizza.jpg">
+                    <p class="itemName">Feast Vegan Pizza (Gluten-free)</p>
+                    <p>Price - <span class="price">3.50</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+
+                <div class="seafood_pizza card">
+                    <img src="images/img_menu/Seafood_Pizza.jpg">
+                    <p class="itemName">Chilli seafood pizza</p>
+                    <p>Price - <span class="price">3.99</span>$</p>
+                    <button class="add-item"><i class="fa fa-shopping-basket"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="contacts">
+        <h1>Food Lover</h1>
+        <div>
+            <a href="#">home</a>
+            <a id="about" href="#">about us</a>
+            <a href="#">services</a>
+            <a href="#">foods</a>
+            <a href="#">location</a>
+        </div>
+        <div>
+            <a class="icon" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="icon" href="#"><i class="fab fa-twitter"></i></a>
+            <a class="icon" href="#"><i class="fab fa-instagram"></i></a>
+            <a class="icon" href="#"><i class="fab fa-pinterest-p"></i></a>
+        </div>
+    </footer>
+
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.0/mustache.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="jquery.waypoints.min.js"></script>
+    <script src="js.js"></script>
+
+</body>
+
+</html>
